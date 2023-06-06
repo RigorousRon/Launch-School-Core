@@ -1,0 +1,28 @@
+{
+  "en": {
+    "greeting" : "Welcome to Calculator!",
+  "firstNumber" : "What's the first number?",
+  "secondNumber" : "What's the second number?",
+  "validNumber" : "Hmmm...that doesn't look like a valid number.",
+  "operationSelect" : "What operation would you like to perform?\n1) Add 2) Subtract 3) Multiply 4) Divide",
+  "validOperation" : "Must choose 1, 2, 3, 4",
+  "redoCalculation" : "Would you like to perform another calculation? Please enter Yes or No",
+  "validChoice" : "Please enter Yes or No",
+  "resultMessage" : "The result is: ",
+  "yesString" : "Yes",
+  "noString" : "No"
+  },
+  "es": {
+    "greeting" : "¡Bienvenido a Calculadora!",
+  "firstNumber" : "¿Cuál es el primer número?",
+  "secondNumber" : "¿Cuál es el segundo número?",
+  "validNumber" : "Hmmm... eso no parece un número válido.",
+  "operationSelect" : "¿Qué operación te gustaría realizar?\n1) Sumar 2) Restar 3) Multiplicar 4) Dividir",
+  "validOperation" : "Debe elegir 1, 2, 3, 4",
+  "redoCalculation" : "¿Desea realizar otro cálculo? Por favor ingrese Sí o No",
+  "validChoice" : "Por favor ingrese Sí o No",
+  "resultMessage" : "El resultado es: ",
+  "yesString" : "Sí",
+  "noString" : "No"
+  }
+}
