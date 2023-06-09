@@ -1,6 +1,3 @@
-/* eslint-disable max-len */
-
-
 const readline = require('readline-sync');
 const PERCENT_CONVERTER = 100;
 const MONTHS_IN_YEAR = 12;
