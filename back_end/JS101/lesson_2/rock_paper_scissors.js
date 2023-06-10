@@ -1,5 +1,12 @@
 const readline = require('readline-sync');
-const VALID_CHOICES = ['rock', 'paper', 'scissors'];
+const VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
+const RULES = {
+  rock: ['scissors', 'lizard'],
+  paper: ['rock', 'spock'],
+  scissors: ['paper', 'lizard'],
+  lizard: ['paper', 'spock'],
+  spock: ['scissors', 'rock']
+};
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -8,16 +15,12 @@ function prompt(message) {
 function displayWinner(choice, computerChoice) {
   prompt(`You chose ${choice}, computer chose ${computerChoice}`);
 
-  if ((choice === 'rock' && computerChoice === 'scissors') ||
-      (choice === 'paper' && computerChoice === 'rock') ||
-      (choice === 'scissors' && computerChoice === 'paper')) {
+  if (RULES[choice].includes(computerChoice)) {
     prompt('You win!');
-  } else if ((choice === 'rock' && computerChoice === 'paper') ||
-            (choice === 'paper' && computerChoice === 'scissors') ||
-            (choice === 'scissors' && computerChoice === 'rock')) {
-    prompt('Computer wins!');
-  } else {
+  } else if (choice === computerChoice) {
     prompt("It's a tie");
+  } else {
+    prompt("Computer Wins!");
   }
 }
 
