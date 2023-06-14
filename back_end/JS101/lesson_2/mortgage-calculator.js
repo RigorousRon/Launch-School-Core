@@ -80,7 +80,7 @@ function chooseRedo(choice) {
   }
 }
 
-function redo() {
+function redoChoice() {
   prompt('Would you like another calculation? Type "yes" or "no"');
   let choice = readline.question();
 
@@ -105,7 +105,7 @@ function runCalculator() {
 
   prompt(`Your payment per month is : $${monthlyPayment.toFixed(2)}`);
 
-  redo();
+  redoChoice();
 }
 
 runCalculator();

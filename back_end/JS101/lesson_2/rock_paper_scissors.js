@@ -31,6 +31,7 @@ function displayWinner(choice, cpuChoice) {
 
   prompt(`You chose ${choice}, computer chose ${cpuChoice}`);
   legend();
+
   if ((VALID_CHOICES.includes(choice) && RULES[choice].includes(cpuChoice)) ||
       (VALID_SHORT.includes(choice) && SHORT[choice].includes(cpuChoice))) {
     result = 'win';
