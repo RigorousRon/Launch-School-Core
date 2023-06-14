@@ -17,6 +17,7 @@ const SHORT = {
 };
 let playerScore = 0;
 let cpuScore = 0;
+let gameOver = false;
 
 function prompt(message) {
   console.log(`=> ${message}`);
@@ -24,6 +25,30 @@ function prompt(message) {
 
 function legend() {
   prompt('(Legend: r: rock; p: paper; sc: scissors; l: lizard; s: spock');
+}
+
+function getPlayerChoice () {
+  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
+  prompt(`(Valid shorthand input: ${VALID_SHORT.join(', ')})`);
+  let choice = readline.question();
+
+  return choice;
+}
+
+function getCpuChoice(choice) {
+  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
+  let computerChoice = verifyChoiceStyle(choice, randomIndex);
+
+  return computerChoice;
+}
+
+function choiceIsValid(choice) {
+  while (!(VALID_CHOICES.includes(choice) || VALID_SHORT.includes(choice))) {
+    prompt("That's not a valid choice");
+    choice = readline.question();
+  }
+
+  return choice;
 }
 
 function displayWinner(choice, cpuChoice) {
@@ -58,47 +83,58 @@ function verifyChoiceStyle(choice, randomIndex) {
     return VALID_SHORT[randomIndex];
   }
 
-  return null;
+  return null; //For eslint rules?
 }
 
-while (true) {
-  console.clear();
-
-  prompt(`Choose one: ${VALID_CHOICES.join(', ')}`);
-  prompt(`(Valid shorthand input: ${VALID_SHORT.join(', ')})`);
-  let choice = readline.question();
-
-  while (!(VALID_CHOICES.includes(choice) || VALID_SHORT.includes(choice))) {
-    prompt("That's not a valid choice");
-    choice = readline.question();
-  }
-
-  let randomIndex = Math.floor(Math.random() * VALID_CHOICES.length);
-  let computerChoice = verifyChoiceStyle(choice, randomIndex);
-  let winStatus = displayWinner(choice, computerChoice);
-
+function incrementScore(winStatus) {
   if (winStatus === 'win') {
     playerScore += 1;
   } else if (winStatus === 'loss') {
     cpuScore += 1;
   }
+}
 
-  displayScore(playerScore, cpuScore);
-
+function determineGrandWinner(playerScore, cpuScore) {
   if (playerScore === 3) {
     prompt("You're the Grand Winner!");
-    break;
+    return true;
   } else if (cpuScore === 3) {
     prompt("Computer is the Grand Winner!");
-    break;
+    return true;
   }
 
+  return false;
+}
+
+function playAgain() {
   prompt('Do you want to play again (y/n)?');
   let answer = readline.question().toLowerCase();
   while (answer[0] !== 'n' && answer[0] !== 'y') {
     prompt('Please enter "y" or "n".');
     answer = readline.question().toLowerCase();
   }
+
+  return answer;
+}
+
+while (!gameOver) {
+  console.clear();
+
+  let choice = getPlayerChoice();
+
+  choiceIsValid(choice);
+
+  let computerChoice = getCpuChoice(choice);
+
+  let winStatus = displayWinner(choice, computerChoice);
+
+  incrementScore(winStatus);
+
+  displayScore(playerScore, cpuScore);
+
+  gameOver = determineGrandWinner(playerScore, cpuScore);
+
+  let answer = playAgain();
 
   if (answer[0] !== 'y') break;
 }
