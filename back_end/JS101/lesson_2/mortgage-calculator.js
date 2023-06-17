@@ -78,13 +78,14 @@ function chooseRedo(choice) {
     prompt('Please enter "yes" or "no"');
     choice = readline.question();
   }
+
+  return choice;
 }
 
 function redoChoice() {
   prompt('Would you like another calculation? Type "yes" or "no"');
   let choice = readline.question();
-
-  chooseRedo(choice);
+  choice = chooseRedo(choice);
 
   if (choice.toLowerCase() === 'yes') {
     runCalculator();
