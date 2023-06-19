@@ -150,7 +150,6 @@ const game = (() => {
       playerScore = RESET_SCORE;
       cpuScore = RESET_SCORE;
       gameOver = false;
-      updateGameBoard();
     }
   }
 
