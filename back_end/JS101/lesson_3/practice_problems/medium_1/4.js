@@ -7,7 +7,7 @@ She wrote two implementations of the code for adding elements to the buffer. In
 presenting the code to her team leader, she said "Take your pick. Do you prefer"
 push() or concat() for modifying the buffer?".
 
-Is there a difference between these implementations, other than th e method she
+Is there a difference between these implementations, other than the method she
 used to add an element to the buffer? You may assume that newElement will always
 be a primitive value.
 */
@@ -27,3 +27,5 @@ function addToRollingBuffer2(buffer, maxBufferSize, newElement) {
   }
   return buffer;
 }
+
+// First mutates the buffer argument, the second does not
