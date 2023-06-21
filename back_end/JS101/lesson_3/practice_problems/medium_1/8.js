@@ -23,4 +23,5 @@ messWithDemographics(munsters);
 //Before Grandpa could stop him, Spot hit the enter key with his tail. Did the
 //family's data get ransacked? Why or why not?
 
-console.log(Object.values(munsters));
+//object is passed by reference so original object is changed, program could
+//have replaced demoObject pointing to munsters with some other object
