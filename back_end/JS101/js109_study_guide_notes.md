@@ -283,7 +283,7 @@ First pass:
     changing that value
   
   scope
-    the area of codein which variables can be accessed, e.g. local, global, 
+    the area of code in which variables can be accessed, e.g. local, global, 
     block
 
   variables as pointers
@@ -301,7 +301,7 @@ First pass:
 
 Conditionals and loops
   First pass:
-    conditionals are expressions a loop checks itself for in order to roon and
+    conditionals are expressions a loop checks itself for in order to run and
     a loop is a block of code that does a repeated action for a specified 
     condition
 
@@ -476,7 +476,7 @@ functions
       output is displaying something to the console vs return values are the
       values being brought back from a function after a function has done some
       operation on the values. a function has side effects when it does both
-      of those things, or mutates a value
+      of those things, or mutates a value (more side effects???)
     
     from notes:
       ???
@@ -548,6 +548,18 @@ common Math methods: floor, random, pow
     more???
 
 discuss functions use and purpose ('user level') instead of its implementation  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
